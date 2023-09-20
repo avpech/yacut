@@ -1,47 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
-  <main>
-    <section class="container my-5 px-4">
-      <h1 class="text-center"><span style="color:red">Ya</span>Cut</h1>
-      <p class="text-center my-4">
-        Создайте короткую ссылку автоматически или предложите свой вариант
-      </p>
-      <div class="container">
-        <div class="row my-3">
-          <div class="col-sm">
-          </div>
-          <div class="col-sm">
-            {% include 'form.html' %}
-          </div>
-          <div class="col-sm">
-          </div>
+  <section class="container my-5 px-4">
+    <h1 class="text-center"><span style="color:red">Ya</span>Cut</h1>
+    <p class="text-center my-4">
+      Создайте короткую ссылку автоматически или предложите свой вариант
+    </p>
+    <div class="container">
+      <div class="row my-3">
+        <div class="col-sm">
+        </div>
+        <div class="col-sm">
+          {% include 'form.html' %}
+        </div>
+        <div class="col-sm">
         </div>
       </div>
-      <div class="container">
-        <div class="row ">
-          <div class="col-sm">
-          </div>
-          <div class="col-sm">
-            <p class="text-center">
-              {% if short_link %}
-                <h5 class="text-center">
-                  <p>Ваша новая ссылка готова</p>
-                  <a href="{{ short_link }}">{{ short_link }}</a>
-                </h5>
+    </div>
+    <div class="container">
+      <div class="row ">
+        <div class="col-sm">
+        </div>
+        <div class="col-sm">
+          <p class="text-center">
+            {% if short_link %}
+              <h5 class="text-center">
+                <p>Ваша новая ссылка готова</p>
+                <a href="{{ short_link }}">{{ short_link }}</a>
+              </h5>
+            {% endif %}
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                {% for message in messages %}
+                  <h5 class="text-center"> {{ message }} </h5>
+                {% endfor %}
               {% endif %}
-              {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                  {% for message in messages %}
-                    <h5 class="text-center"> {{ message }} </h5>
-                  {% endfor %}
-                {% endif %}
-              {% endwith %}
-            </p>
-          </div>
-          <div class="col-sm">
-          </div>
+            {% endwith %}
+          </p>
+        </div>
+        <div class="col-sm">
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 {% endblock content %}

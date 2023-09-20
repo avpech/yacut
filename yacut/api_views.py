@@ -1,6 +1,6 @@
 import re
 from http import HTTPStatus
-from typing import Any, Tuple
+from typing import Tuple
 
 from flask import Response, jsonify, request, url_for
 
@@ -26,7 +26,7 @@ class ErrorMessages:
     )
 
 
-def validate_url(url: Any) -> None:
+def validate_url(url: str) -> None:
     """Валидация исходной (длинной) ссылки."""
     if url is None:
         raise InvalidAPIUsage(ErrorMessages.URL_MISSING)
@@ -41,7 +41,7 @@ def validate_url(url: Any) -> None:
         raise InvalidAPIUsage(ErrorMessages.INCORRECT_URL)
 
 
-def validate_custom_id(custom_id: Any) -> None:
+def validate_custom_id(custom_id: str) -> None:
     """Валидация id для короткой ссылки."""
     if not isinstance(custom_id, str):
         raise InvalidAPIUsage(
@@ -65,7 +65,7 @@ def create_id() -> Tuple[Response, HTTPStatus]:
     url = data.get('url')
     custom_id = data.get('custom_id')
     validate_url(url)
-    if custom_id is None or custom_id == '':
+    if not custom_id:
         try:
             custom_id = get_unique_short_id()
         except AttemtsExceedingException as err:
