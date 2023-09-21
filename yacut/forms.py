@@ -2,8 +2,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, URLField
 from wtforms.validators import URL, DataRequired, Length, Optional, Regexp
 
-from settings import ORIGINAL_LINK_LENGTH, SHORT_LINK_LENGTH
 from yacut.constants import SHORT_LINK_REGEX
+from yacut.settings import ORIGINAL_LINK_LENGTH, SHORT_LINK_LENGTH
 
 
 class URLMapForm(FlaskForm):

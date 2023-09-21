@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from settings import ORIGINAL_LINK_LENGTH, SHORT_LINK_LENGTH
 from yacut import db
+from yacut.settings import ORIGINAL_LINK_LENGTH, SHORT_LINK_LENGTH
 
 
 class URLMap(db.Model):

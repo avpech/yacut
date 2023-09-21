@@ -1,9 +1,9 @@
 import random
 
-from settings import AUTO_ID_LENGTH, CREATE_ID_ATTEMPTS
 from yacut.constants import CHARS
 from yacut.exceptions import AttemtsExceedingException
 from yacut.models import URLMap
+from yacut.settings import AUTO_ID_LENGTH, CREATE_ID_ATTEMPTS
 
 
 def get_unique_short_id() -> str:

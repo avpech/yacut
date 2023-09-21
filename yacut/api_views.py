@@ -4,11 +4,11 @@ from typing import Tuple
 
 from flask import Response, jsonify, request, url_for
 
-from settings import ORIGINAL_LINK_LENGTH, SHORT_LINK_LENGTH
 from yacut import app, db
 from yacut.constants import ORIGINAL_LINK_REGEX, SHORT_LINK_REGEX
 from yacut.exceptions import AttemtsExceedingException, InvalidAPIUsage
 from yacut.models import URLMap
+from yacut.settings import ORIGINAL_LINK_LENGTH, SHORT_LINK_LENGTH
 from yacut.utils import get_unique_short_id
 
 
